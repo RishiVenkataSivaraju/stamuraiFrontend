@@ -19,7 +19,7 @@ export default function Register() {
     setMessage("Registering...");
 
     try {
-      const res = await fetch("https://stamurai-backend.vercel.app/register", {
+      const res = await fetch("https://stamurai-backend.vercel.app/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
