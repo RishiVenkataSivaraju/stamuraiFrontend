@@ -8,7 +8,7 @@ export default function Home() {
     // Async function to fetch data from Express backend
     async function fetchData() {
       try {
-        const response = await fetch("https://stamurai-backend.vercel.app/register");
+        const response = await fetch("https://stamurai-backend.vercel.app/");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
