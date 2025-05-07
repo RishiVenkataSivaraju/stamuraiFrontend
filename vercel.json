@@ -3,11 +3,8 @@
   "name":"Stamuraifrontend",
   "builds": [
     {
-      "src": "next.config.js",
+      "src": "next.config.mjs",
       "use": "@vercel/next"
     }
-  ],
-  "env": {
-    "NEXT_PUBLIC_API_URL": "https://stamurai-backend.vercel.app/"
-  }
+  ]
 }
