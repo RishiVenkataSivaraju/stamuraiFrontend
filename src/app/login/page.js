@@ -15,7 +15,7 @@ export default function Login() {
     setMessage("Logging in...");
 
     try {
-      const res = await fetch("http://localhost:8080/auth/login", {
+      const res = await fetch("https://stamurai-backend.vercel.app/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // Ensure cookies/session are included

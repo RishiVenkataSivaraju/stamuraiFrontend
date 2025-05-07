@@ -24,7 +24,7 @@ export default function SearchBar({ onResults }) {
     if (overdue) params.append('overdue', overdue);
 
     // Send GET request with fetch
- const response = await fetch(`http://localhost:8080/tasks/search?${params.toString()}`, {
+ const response = await fetch(`https://stamurai-backend.vercel.app/tasks/search?${params.toString()}`, {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json', 
