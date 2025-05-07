@@ -8,6 +8,6 @@
     }
   ],
   "env": {
-    "NEXT_PUBLIC_API_URL": "https://your-backend-service-url.onrender.com"
+    "NEXT_PUBLIC_API_URL": "https://stamurai-backend.vercel.app/"
   }
 }
