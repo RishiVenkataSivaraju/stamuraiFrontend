@@ -34,7 +34,7 @@ export default function Dashboard() {
 
   const fetchCurrentUser = async () => {
     try {
-      const res = await fetch(`${API_BASE}/me`, { credentials: "include" });
+      const res = await fetch(`${API_BASE}/me`);
       if (!res.ok) throw new Error("Failed to fetch current user");
       const data = await res.json();
       setCurrentUser(data);
@@ -45,7 +45,7 @@ export default function Dashboard() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch(`${API_BASE}/users`, { credentials: "include" });
+      const res = await fetch(`${API_BASE}/users`);
       const data = await res.json();
       setUsers(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -55,7 +55,7 @@ export default function Dashboard() {
 
   const fetchTasks = async () => {
     try {
-      const res = await fetch(`${API_BASE}/tasks`, { credentials: "include" });
+      const res = await fetch(`${API_BASE}/tasks`);
       const data = await res.json();
       setTasks(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -66,7 +66,7 @@ export default function Dashboard() {
 
   const fetchNotifications = async () => {
     try {
-      const res = await fetch(`${API_BASE}/notifications/unread`, { credentials: "include" });
+      const res = await fetch(`${API_BASE}/notifications/unread`);
       const data = await res.json();
       console.log(data);
       setNotifications(data);
