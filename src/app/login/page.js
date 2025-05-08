@@ -10,32 +10,34 @@ export default function Login() {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setMessage("Logging in...");
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setMessage("Logging in...");
 
-    try {
-      const res = await fetch("https://stamurai-backend.vercel.app/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include", // Ensure cookies/session are included
-        body: JSON.stringify(formData),
-      });
+  try {
+    const res = await fetch("https://stamurai-backend.vercel.app/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include", // Include session cookies
+      body: JSON.stringify(formData),
+    });
 
-      const text = await res.text();
-      if (res.ok) {
-        setMessage("Logged in successfully! Redirecting...");
-        setTimeout(() => {
-          window.location.href = "/dashboard"; // Redirect after login
-        }, 1500);
-      } else {
-        setMessage(text); // Display error message from backend
-      }
-    } catch (err) {
-      console.error(err);
-      setMessage("Login failed");
+    const data = await res.json(); // Always parse as JSON
+
+    if (res.ok) {
+      setMessage("Logged in successfully! Redirecting...");
+      setTimeout(() => {
+        window.location.href = "/dashboard";
+      }, 1500);
+    } else {
+      setMessage(data.message || "Login failed"); // Show backend error message
     }
-  };
+  } catch (err) {
+    console.error("Login error:", err);
+    setMessage("Login failed due to network/server error.");
+  }
+};
+
 
   return (
     <div style={{ padding: "2rem" }}>
