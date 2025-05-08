@@ -18,7 +18,7 @@ export default function Login() {
       const res = await fetch("https://stamurai-backend.vercel.app/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include", // Ensure cookies/session are included
+        // credentials: "include", // Ensure cookies/session are included
         body: JSON.stringify(formData),
       });
 
